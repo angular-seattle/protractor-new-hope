@@ -1,3 +1,20 @@
-<p>
-  tractor-control works!
-</p>
+
+
+
+<div style="text-align:center">
+    
+  <p>tractor-control works!</p>
+  <p>
+    <button mat-button color="primary" (click)="changeTestState('pass')">working version</button>
+    <button mat-button color="accent" class="tractorbeam-debug"
+      (click)="changeTestState('debug')">debug this</button>
+    <button mat-button color="primary" (click)="resetFrameState()">reset frames</button>
+  </p>
+  <p>
+    <img [src]="getFrame()" (click)="incrementFrameState()" width=500/>
+  </p>
+  <p>
+    <span>test: assets/{{testState}}/</span>
+    <span>frame: {{frameState}}</span>
+  </p>
+</div>
