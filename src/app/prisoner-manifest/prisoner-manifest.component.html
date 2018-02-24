@@ -1,3 +1,5 @@
-<p>
-  prisoner-manifest works!
-</p>
+<mat-grid-list cols="2" rowHeight="100px">
+  <mat-grid-tile *ngFor="let prisoner of prisoners">
+    <prisoner-card [prisoner]="prisoner"></prisoner-card>
+  </mat-grid-tile>
+</mat-grid-list>

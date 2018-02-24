@@ -15,6 +15,7 @@ import {
   MatCheckbox,
   MatCheckboxModule,
   MatDividerModule,
+  MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatProgressSpinnerModule,
@@ -23,6 +24,7 @@ import {
   MatTableModule,
   MatToolbarModule,
 } from '@angular/material';
+import { PrisonerCardComponent } from './prisoner-manifest/prisoner-card.component';
 
 @NgModule({
   exports: [
@@ -30,6 +32,7 @@ import {
     MatCardModule,
     MatCheckboxModule,
     MatDividerModule,
+    MatGridListModule,
     MatListModule,
     MatProgressSpinnerModule,
     MatTableModule,
@@ -45,7 +48,8 @@ export class MaterialImportModule{ }
     AppComponent,
     TractorControlComponent,
     FiringFormComponent,
-    PrisonerManifestComponent
+    PrisonerManifestComponent,
+    PrisonerCardComponent
   ],
   imports: [
     BrowserModule,
