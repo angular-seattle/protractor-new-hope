@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TractorControlComponent implements OnInit {
 
-  frameState = 1;
+  frameState = 4;
   testState = 'pass'
 
   constructor() { }

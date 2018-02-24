@@ -2,15 +2,14 @@
 
 
 <div style="text-align:center">
-    
-  <p>tractor-control works!</p>
+  <h2>Tractor Beam Control</h2>
   <p>
     <button (click)="changeTestState('pass')">working!</button>
     <button (click)="changeTestState('debug')">debug this</button>
     <button (click)="resetFrameState()">reset frames</button>
   </p>
   <p>
-    <img [src]="getFrame()" (click)="incrementFrameState()" width=500/>
+    <img class="lever" [src]="getFrame()" (click)="incrementFrameState()" width=500/>
   </p>
   <p>
     <span>test: assets/{{testState}}/</span>
