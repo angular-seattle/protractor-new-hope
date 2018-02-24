@@ -2,14 +2,16 @@
 
 
 <div style="text-align:center">
-  <h2>Tractor Beam Control</h2>
+
+  <p>tractor-control works!</p>
   <p>
-    <button (click)="changeTestState('pass')">working!</button>
-    <button (click)="changeTestState('debug')">debug this</button>
-    <button (click)="resetFrameState()">reset frames</button>
+    <button mat-button color="primary" (click)="changeTestState('pass')">working version</button>
+    <button mat-button color="accent" class="tractorbeam-debug"
+      (click)="changeTestState('debug')">debug this</button>
+    <button mat-button color="primary" (click)="resetFrameState()">reset frames</button>
   </p>
   <p>
-    <img class="lever" [src]="getFrame()" (click)="incrementFrameState()" width=500/>
+    <img [src]="getFrame()" (click)="incrementFrameState()" width=500/>
   </p>
   <p>
     <span>test: assets/{{testState}}/</span>

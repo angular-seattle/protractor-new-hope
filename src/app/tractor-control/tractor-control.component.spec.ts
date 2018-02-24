@@ -22,4 +22,10 @@ describe('TractorControlComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should switch state to debug', () => {
+    let button = fixture.debugElement.nativeElement.querySelector('button.tractorbeam-debug');
+    button.click();
+    expect(component.testState).toEqual('debug');
+  });
 });
