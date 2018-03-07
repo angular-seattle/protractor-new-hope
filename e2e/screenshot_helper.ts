@@ -1,7 +1,9 @@
 import * as fs from 'fs';
-import * as looksSame from 'looks-same';
 import * as os from 'os';
 import * as path from 'path';
+
+let looksSame = require('looks-same');
+
 
 /**
  * Compare a screenshot to a reference, or "golden" image.
@@ -16,6 +18,7 @@ import * as path from 'path';
 export function compareScreenshot(data, golden) {
   return new Promise((resolve, reject) => {
     return writeScreenshot(data).then((screenshotPath) => {
+      console.log('UPDATE_SCREENSHOTS: ' + process.env['UPDATE_SCREENSHOTS']);
       if (process.env['UPDATE_SCREENSHOTS']) {
         console.log('Writing new screenshot');
         fs.writeFileSync(golden, fs.readFileSync(screenshotPath));

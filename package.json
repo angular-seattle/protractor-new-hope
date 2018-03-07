@@ -8,7 +8,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "export UPDATE_SCREENSHOTS=0 && ng e2e",
+    "take_goldens": "export UPDATE_SCREENSHOTS=1 && ng e2e"
   },
   "private": true,
   "dependencies": {
