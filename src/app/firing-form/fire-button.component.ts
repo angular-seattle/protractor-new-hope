@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-firing-form',
-  templateUrl: './firing-form.component.html',
-  styleUrls: ['./firing-form.component.css']
+  selector: 'app-fire-button',
+  templateUrl: './fire-button.component.html',
+  styleUrls: ['./fire-button.component.css']
 })
-export class FiringFormComponent implements OnInit {
+export class FireButtonComponent implements OnInit {
   countdown = 0;
   isReady = false;
   private startTime = 0;

@@ -1,0 +1,9 @@
+<div>
+<button mat-button (click)="ready()">Ready</button>
+{{countdown | number:"0.3-3"}}
+</div>
+{{isReady}}
+<div>
+<button mat-button [disabled]="!isReady" (click)="fire()">Fire</button>
+Confirm (must be pressed after 10s, within 15s)
+</div>

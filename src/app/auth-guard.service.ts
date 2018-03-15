@@ -9,11 +9,12 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // Milestone 2: Fix the typo
+    // TODO(Milestone 2): Fix the typo
     if (route.url[0].path == "prisoner") {
       window.location.replace("/assets/login.html");
       return false;
     }
+    // TODO(heathkit): Make the login page work.
     return true;
   }
 

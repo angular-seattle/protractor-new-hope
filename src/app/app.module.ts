@@ -26,6 +26,7 @@ import {
 } from '@angular/material';
 import { PrisonerCardComponent } from './prisoner-manifest/prisoner-card.component';
 import { HomeComponent } from './home/home.component';
+import { FireButtonComponent } from './firing-form/fire-button.component';
 
 @NgModule({
   exports: [
@@ -40,7 +41,7 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatIconModule,
     MatInputModule
-  ]
+  ],
 })
 export class MaterialImportModule{ }
 
@@ -49,6 +50,7 @@ export class MaterialImportModule{ }
     AppComponent,
     TractorControlComponent,
     FiringFormComponent,
+    FireButtonComponent,
     HomeComponent,
     PrisonerManifestComponent,
     PrisonerCardComponent

@@ -1,21 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FiringFormComponent } from './firing-form.component';
+import { FireButtonComponent } from './fire-button.component';
 
-// TODO(heathkit): Add some unit tests
-describe('FiringFormComponent', () => {
-  let component: FiringFormComponent;
-  let fixture: ComponentFixture<FiringFormComponent>;
+describe('FireButtonComponent', () => {
+  let component: FireButtonComponent;
+  let fixture: ComponentFixture<FireButtonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FiringFormComponent ]
+      declarations: [ FireButtonComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FiringFormComponent);
+    fixture = TestBed.createComponent(FireButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
