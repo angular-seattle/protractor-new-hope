@@ -2,8 +2,17 @@ import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
 
-let looksSame = require('looks-same');
+/*
+ * Create shim for LooksSame typing.
+ */
+export interface LooksSame {
+  (img1: string, img2: string, options: Object, check: (error: any, equal: any) => void);
+  (img1: string, img2: string, check: (error: any, equal: any) => void);
+  createDiff(options: Object, err: Function);
+}
 
+// Require looks-same casted with shim interface LooksSame typing.
+let looksSame: LooksSame = require('looks-same');
 
 /**
  * Compare a screenshot to a reference, or "golden" image.
@@ -42,7 +51,7 @@ export function compareScreenshot(data, golden) {
               } else {
                 resolve(equal);
               }
-            })
+            });
       }
     });
   });
