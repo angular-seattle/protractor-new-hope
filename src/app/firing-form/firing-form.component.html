@@ -2,20 +2,37 @@
 <div>Failure to properly fill out the Death Star Firing Authorization Form will be punished under
   Article 22-C of the Imperial Code of Military Conduct</div>
 
-<div>
-  System:
-</div>
-<div>
-  Orbit:
-</div>
-<div>
-  Beacon Designator:
-</div>
-<div>
-  Authorizing Officer:
-</div>
-<div>
-  Command Code:
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+
+<mat-form-field floatLabel=true>
+  <mat-label class="center-block">System:</mat-label>
+  <input matInput class="form-control" formControlName="system">
+</mat-form-field>
+
+<mat-form-field floatLabel=true>
+  <mat-label class="center-block">Orbit:</mat-label>
+  <input matInput class="form-control" formControlName="orbit">
+</mat-form-field>
+
+<h4>Authorizing Officers</h4>
+<div formArrayName="authorizingOfficers">
+  <div *ngFor="let officer of officers.controls; let i=index" [formGroupName]="i" >
+    <!-- The repeated address template -->
+    <div style="margin-left: 1em;">
+      <mat-form-field floatLabel=true>
+        <mat-label class="center-block">Name</mat-label>
+        <input matInput class="form-control" formControlName="name">
+      </mat-form-field>
+      <mat-form-field floatLable=true>
+        <mat-label class="center-block">Command Code</mat-label>
+        <input matInput class="form-control" formControlName="commandCode">
+      </mat-form-field>
+      <button (click)="removeOfficer(i)" type="button">Delete</button>
+    </div>
+  </div>
+  <button (click)="addOfficer()" type="button">Add an officer</button>
 </div>
 
 <app-fire-button></app-fire-button>
+
+</form>
