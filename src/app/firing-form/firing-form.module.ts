@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import {
   MatButtonModule,
+  MatDividerModule,
   MatInputModule,
 } from '@angular/material';
 
@@ -20,6 +21,7 @@ import {
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatDividerModule,
     MatInputModule,
     ReactiveFormsModule,
   ]

@@ -1,0 +1,9 @@
+.officers {
+    border: solid gray 1px;
+    width: 400px;
+    padding: 1em;
+}
+
+.officers h4{
+    margin: 0;
+}

@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 
 import { FireButtonComponent } from './fire-button.component';
 
@@ -23,3 +24,8 @@ describe('FireButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({
+  template: `<app-fire-button [enabled]="enabled"></app-fire-button>`
+})
+export class FiringButtonContainer {}

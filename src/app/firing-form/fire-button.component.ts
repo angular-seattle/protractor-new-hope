@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fire-button',
@@ -9,6 +9,8 @@ export class FireButtonComponent implements OnInit {
   countdown = 0;
   isReady = false;
   private startTime = 0;
+
+  @Input() enabled = false;
 
   constructor() { }
 

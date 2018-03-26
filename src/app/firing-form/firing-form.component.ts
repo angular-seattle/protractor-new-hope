@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class Officer {
   name: string = '';
@@ -30,9 +30,11 @@ export class FiringFormComponent implements OnInit {
 
   createForm() {
     this.orderForm = this.fb.group({
-      system: 'Alderaan',
-      orbit: '',
+      system: ['Alderaan', Validators.required],
+      orbit: ['', Validators.required],
       authorizingOfficers: this.fb.array([])
+    }, {
+      validator: officerValidator
     });
   }
 
@@ -75,3 +77,16 @@ export class FiringFormComponent implements OnInit {
     console.log('Submitting!');
   }
 }
+
+
+function officerValidator(group: FormGroup) {
+  const value = group.value as FiringOrder;
+  const valid = value.authorizingOfficers.some((officer) => {
+    return officer.commandCode.includes('Gold');
+  })
+  if (!valid) {
+    return {'MissingAuth': true}
+  }
+}
+
+

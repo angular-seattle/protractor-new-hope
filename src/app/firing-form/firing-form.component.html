@@ -14,7 +14,9 @@
   <input matInput class="form-control" formControlName="orbit">
 </mat-form-field>
 
+<div class="officers">
 <h4>Authorizing Officers</h4>
+<mat-divider></mat-divider>
 <div formArrayName="authorizingOfficers">
   <div *ngFor="let officer of officers.controls; let i=index" [formGroupName]="i" >
     <!-- The repeated address template -->
@@ -23,16 +25,17 @@
         <mat-label class="center-block">Name</mat-label>
         <input matInput class="form-control" formControlName="name">
       </mat-form-field>
-      <mat-form-field floatLable=true>
+      <mat-form-field floatLabel=true>
         <mat-label class="center-block">Command Code</mat-label>
         <input matInput class="form-control" formControlName="commandCode">
       </mat-form-field>
       <button (click)="removeOfficer(i)" type="button">Delete</button>
     </div>
   </div>
-  <button (click)="addOfficer()" type="button">Add an officer</button>
+  <button mat-button (click)="addOfficer()" type="button">Add an officer</button>
+</div>
 </div>
 
-<app-fire-button></app-fire-button>
+<app-fire-button [enabled]="orderForm.valid"></app-fire-button>
 
 </form>
