@@ -28,7 +28,7 @@ export function compareScreenshot(data, golden) {
   return new Promise((resolve, reject) => {
     return writeScreenshot(data).then((screenshotPath) => {
       console.log('UPDATE_SCREENSHOTS: ' + process.env['UPDATE_SCREENSHOTS']);
-      if (process.env['UPDATE_SCREENSHOTS']) {
+      if (process.env['UPDATE_SCREENSHOTS'] != '0') {
         console.log('Writing new screenshot');
         fs.writeFileSync(golden, fs.readFileSync(screenshotPath));
         resolve(true);
