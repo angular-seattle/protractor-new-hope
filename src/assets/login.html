@@ -6,10 +6,20 @@
 </head>
 <body>
 <h1>Fake Login Page!</h1>
-<form action="/">
+<form action="/prisoners">
 <p><label>User:</label><input class="user"></p>
 <p><label>Password:</label><input class="password" type="password"></p>
-<p><input id="login" type="submit" value="Login"></input></p>
+<p><button id="login" type="submit" onclick="setCookie('username', 'foo')">Login</button></p>
 </form>
+<script>
+  function setCookie(cname, cvalue) {
+    var d = new Date();
+    d.setTime(d.getTime() + (1 * 60 * 1000));
+    console.log(d);
+    var expires = "expires="+d.toUTCString();
+    console.log(expires);
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+</script>
 </body>
 </html>

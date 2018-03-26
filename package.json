@@ -8,8 +8,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "export UPDATE_SCREENSHOTS=0 && ng e2e",
-    "take_goldens": "export UPDATE_SCREENSHOTS=1 && ng e2e"
+    "e2e": "export UPDATE_SCREENSHOTS=0 && npm run webdriver-update && protractor protractor.conf.js",
+    "take_goldens": "export UPDATE_SCREENSHOTS=1 && npm run webdriver-update && protractor protractor.conf.js --specs='e2e/tractor.e2e-spec.ts'",
+    "webdriver-update": "webdriver-manager update --versions.chrome=2.36 --gecko false --standalone false"
   },
   "private": true,
   "dependencies": {

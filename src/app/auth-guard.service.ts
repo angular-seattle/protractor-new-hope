@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     // TODO(Milestone 2): Fix the typo
-    if (route.url[0].path == "prisoner") {
+    if (!window.document.cookie.toString().startsWith('username')) {
       window.location.replace("/assets/login.html");
       return false;
     }
