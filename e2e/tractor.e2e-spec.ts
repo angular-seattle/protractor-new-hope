@@ -9,8 +9,8 @@ const GOLDEN_IMAGES = [1,2,3,4].map((i) => {
 
 describe('Tractor beam control page', () => {
 
-  beforeEach(() => {
-    browser.get('/tractor');
+  beforeEach(async() => {
+    await browser.get('/tractor');
   });
 
   it('display the right images', async() => {
