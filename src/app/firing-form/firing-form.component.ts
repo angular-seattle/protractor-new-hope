@@ -74,6 +74,7 @@ export class FiringFormComponent implements OnInit {
   }
 
   onSubmit() {
+    // Show video of death star firing
     console.log('Submitting!');
   }
 }

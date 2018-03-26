@@ -6,18 +6,15 @@ describe('TractorControlComponent', () => {
   let component: TractorControlComponent;
   let fixture: ComponentFixture<TractorControlComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async(async() => {
+    await TestBed.configureTestingModule({
       declarations: [ TractorControlComponent ]
-    })
-    .compileComponents();
-  }));
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(TractorControlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
