@@ -8,16 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class TractorControlComponent implements OnInit {
 
   frameState = 1;
-  testState = 'pass'
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  changeTestState(newState: string) {
-    this.testState = newState;
-    this.resetFrameState();
   }
 
   incrementFrameState() {
@@ -31,6 +25,6 @@ export class TractorControlComponent implements OnInit {
   }
 
   getFrame(): string {
-    return `assets/${this.testState}/frame${this.frameState}.png`
+    return `assets/frame${this.frameState}.png`
   }
 }
