@@ -20,26 +20,6 @@ describe('TractorControlComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should switch state to debug', () => {
-    let debugButton = fixture.debugElement.nativeElement
-        .querySelector('button.tractorbeam-debug');
-    let testState = fixture.debugElement.nativeElement
-        .querySelector('span.test-state');
-
-    expect(component.testState).toEqual('pass');
-    debugButton.click();
-
-    // The testState should change because the class variable changed.
-    expect(component.testState).toEqual('debug');
-    // The template should not change because we did not call detectChanges.
-    expect(testState.textContent).toContain('/pass/');
-
-    // After we detect changes the template and the class variable reflect the changes.
-    fixture.detectChanges();
-    expect(component.testState).toEqual('debug');
-    expect(testState.textContent).toContain('/debug/');
-  });
-
   it('should click on the image and increment the frame', () => {
     let leverImage = fixture.debugElement.nativeElement
         .querySelector('img.lever');
