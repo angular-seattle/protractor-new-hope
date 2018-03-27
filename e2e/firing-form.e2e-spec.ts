@@ -64,10 +64,15 @@ describe('Firing form', () => {
   });
 
   it('should click ready and fire', async() => {
-    let fireButton = await element(by.buttonText('Fire'));
+    let readyButton = element(by.buttonText('Ready'));
+    await readyButton.click();
+
+    let fireButton = element(by.buttonText('Fire'));
 
     // TODO(milestone #3): Fix the wait for the test.
-    expect(await EC.elementToBeClickable(fireButton)()).toBeTruthy();
+    await browser.waitForAngularEnabled(false);
+    await browser.wait(await EC.elementToBeClickable(fireButton), 12000);
     await fireButton.click();
+    await browser.waitForAngularEnabled(true);
   });
 });

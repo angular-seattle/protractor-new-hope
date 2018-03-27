@@ -21,6 +21,10 @@ const appRoutes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'prisoners',
+        component: PrisonerManifestComponent,
+    },
+    {
         path: 'firing',
         component: FiringFormComponent,
     }
