@@ -46,7 +46,7 @@ export function compareScreenshot(data, golden) {
                           '#ff00ff',  // color to highlight the differences
                     },
                     (error) => {
-                      reject(error);
+                      reject(new Error(`Screenshots do not match for ${golden}.`));
                     });
               } else {
                 resolve(equal);
