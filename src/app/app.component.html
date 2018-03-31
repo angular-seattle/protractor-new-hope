@@ -1,6 +1,6 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <mat-toolbar-row>
-    <a mat-button routerLink="">Home (TODO deathstar icon)</a>
+    <a mat-button routerLink=""><img class="logo" src="assets/empire_logo.png"></a>
 
     <a mat-button routerLink="/tractor">Tractor Beam Control</a>
 
@@ -10,4 +10,6 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="app-content mat-app-background" fullscreen>
+  <router-outlet></router-outlet>
+</div>
