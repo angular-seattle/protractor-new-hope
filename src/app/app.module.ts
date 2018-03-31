@@ -8,6 +8,7 @@ import { FiringFormComponent } from './firing-form/firing-form.component';
 import { PrisonerManifestComponent } from './prisoner-manifest/prisoner-manifest.component';
 import { AppRoutes } from './app.routes';
 import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormsModule } from '@angular/forms';
@@ -63,7 +64,7 @@ export class MaterialImportModule{ }
     MaterialImportModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

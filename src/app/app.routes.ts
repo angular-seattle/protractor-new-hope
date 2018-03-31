@@ -16,13 +16,9 @@ const appRoutes: Routes = [
         component: TractorControlComponent
     },
     {
-        path: 'prisoner',
-        component: PrisonerManifestComponent,
-        canActivate: [AuthGuard]
-    },
-    {
         path: 'prisoners',
         component: PrisonerManifestComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'firing',

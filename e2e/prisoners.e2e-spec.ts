@@ -29,13 +29,9 @@ describe('Prisoner manifest', () => {
   describe('with a cookie', () => {
     it('should automatically load prisoners', async() => {
       // TODO (milestone #2): Run through chrome://inspect and debug.
-      debugger;
       await browser.get('/prisoner');
-      debugger;
       await (browser.manage() as any).addCookie({name: 'userflame', value: 'spock'});
-      debugger;
       await browser.get('/prisoner');
-      debugger;
       expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + 'prisoner');
     })
   });

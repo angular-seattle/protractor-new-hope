@@ -15,8 +15,9 @@
     "webdriver-start": "npm run webdriver-update && webdriver-manager start --versions.chrome=2.36",
     "webdriver-update": "webdriver-manager update --versions.chrome=2.36 --gecko false",
     "milestone1": "export UPDATE_SCREENSHOTS=0 && npm run webdriver-update && protractor protractor.conf.js --specs='e2e/tractor.e2e-spec.ts' --directConnect",
-    "milestone2": "npm run webdriver-update && node --inspect-brk ./node_modules/.bin/protractor protractor.conf.js --specs='e2e/prisoners.e2e-spec.ts' --directConnect",
-    "milestone3": "protractor protractor.conf.js --specs='e2e/firing-form.e2e-spec.ts' --highlightDelay=1000"
+    "milestone2": "npm run webdriver-update && protractor protractor.conf.js --specs='e2e/prisoners.e2e-spec.ts' --directConnect",
+    "milestone2-debug": "npm run webdriver-update && node --inspect-brk ./node_modules/.bin/protractor protractor.conf.js --specs='e2e/prisoners.e2e-spec.ts' --directConnect",
+    "milestone3": "protractor protractor.conf.js --specs='e2e/firing-form.e2e-spec.ts' --highlightDelay=3000"
   },
   "private": true,
   "dependencies": {

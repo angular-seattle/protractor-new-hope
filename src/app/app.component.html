@@ -7,6 +7,12 @@
     <a mat-button routerLink="/prisoners">Prisoner Manifest</a>
 
     <a mat-button routerLink="/firing">Firing Form</a>
+
+    <span class="fill-remaining-space"></span>
+    <span *ngIf="auth.isAuthenticated()">
+      {{auth.getCurrentUser()}}
+      <button mat-button (click)="auth.logout()">Logout</button>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
 

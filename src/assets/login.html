@@ -6,19 +6,17 @@
 </head>
 <body>
 <h1>Fake Login Page!</h1>
-<form action="/prisoners">
-<p><label>User:</label><input class="user"></p>
+<p><label>User:</label><input id="user" class="user" value="Bob"></p>
 <p><label>Password:</label><input class="password" type="password"></p>
-<p><button id="login" type="submit" onclick="setCookie('username', 'foo')">Login</button></p>
-</form>
+<p><button id="login" type="submit" onclick="login()">Login</button></p>
 <script>
-  function setCookie(cname, cvalue) {
-    var d = new Date();
-    d.setTime(d.getTime() + (1 * 60 * 1000));
-    console.log(d);
-    var expires = "expires="+d.toUTCString();
-    console.log(expires);
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  /* In a real application, this might call to a server to generate a JWT
+     auth token for testing purposes. */
+  function login() {
+    const user = document.getElementById('user').value;
+    const authToken = JSON.stringify({user, timestamp: Date.now()});
+    localStorage.setItem('auth', authToken);
+    window.location = "/prisoners";
   }
 </script>
 </body>

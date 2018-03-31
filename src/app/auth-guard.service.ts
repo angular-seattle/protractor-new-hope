@@ -2,19 +2,18 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { take, map, tap } from 'rxjs/operators';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router/src/router_state';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // TODO(Milestone 2): Fix the typo
-    if (!window.document.cookie.toString().startsWith('username')) {
+    if (!this.auth.isAuthenticated()) {
       window.location.replace("/assets/login.html");
       return false;
     }
-    // TODO(heathkit): Make the login page work.
     return true;
   }
 
