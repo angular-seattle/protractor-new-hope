@@ -16,7 +16,7 @@ describe('Tractor beam control page', () => {
     await browser.driver.manage().window().setSize(width, height);
   });
 
-  fit('display the right images', async() => {
+  it('display the right images', async() => {
     let timeEl = element(by.css('.time'));
     await addMask(timeEl, 'black');
     console.log(GOLDEN_IMAGES)
