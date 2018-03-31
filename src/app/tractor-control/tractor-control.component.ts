@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TractorControlComponent implements OnInit {
 
   frameState = 1;
+  today = Date.now();
 
   constructor() { }
 

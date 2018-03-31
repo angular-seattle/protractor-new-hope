@@ -2,6 +2,9 @@ import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
 
+import {browser, ElementFinder} from 'protractor';
+let mask_fn = require('./mask').MASK_FN;
+
 /*
  * Create shim for LooksSame typing.
  */
@@ -24,53 +27,47 @@ let looksSame: LooksSame = require('looks-same');
  * @param data The screenshot image data.
  * @param golden The path to the golden image to compare to.
  */
-export function compareScreenshot(data, golden) {
-  return new Promise((resolve, reject) => {
-    return writeScreenshot(data).then((screenshotPath) => {
-      console.log('UPDATE_SCREENSHOTS: ' + process.env['UPDATE_SCREENSHOTS']);
-      if (process.env['UPDATE_SCREENSHOTS'] != '0') {
-        console.log('Writing new screenshot');
-        fs.writeFileSync(golden, fs.readFileSync(screenshotPath));
-        resolve(true);
-      } else {
-        looksSame(
-            screenshotPath, golden, {strict: false, tolerance: 2.5},
-            (error, equal) => {
-              if (!equal) {
-                looksSame.createDiff(
-                    {
-                      reference: golden,
-                      current: screenshotPath,
-                      diff: 'diff.png',
-                      highlightColor:
-                          '#ff00ff',  // color to highlight the differences
-                    },
-                    (error) => {
-                      reject(new Error(`Screenshots do not match for ${golden}.`));
-                    });
-              } else {
-                resolve(equal);
-              }
-            });
-      }
+export async function compareScreenshot(data, golden) {
+  let screenshotPath = await writeScreenshot(data);
+  console.log('UPDATE_SCREENSHOTS: ' + process.env['UPDATE_SCREENSHOTS']);
+  if (process.env['UPDATE_SCREENSHOTS'] != '0') {
+    console.log('Writing new screenshot');
+    fs.writeFileSync(golden, fs.readFileSync(screenshotPath));
+    return true;
+  } else {
+    return new Promise<boolean>((resolve, reject) => {
+      looksSame(screenshotPath, golden, {strict: false, tolerance: 2.5}, (error, equal) => {
+        if (!equal) {
+          looksSame.createDiff({
+            reference: golden,
+            current: screenshotPath,
+            diff: 'diff.png',
+            highlightColor: '#ff00ff',  // color to highlight the differences
+          }, (error) => {
+            reject(`Screenshots do not match for ${golden}.`)
+          });
+        } else {
+          resolve(true);
+        }
+      });
     });
-  });
+  }
 }
 
 /**
  *  Write a screenshot to disk in a new temporary path.
  */
-function writeScreenshot(data) {
-  return new Promise<string>((resolve, reject) => {
-    const folder = fs.mkdtempSync(`${os.tmpdir()}${path.sep}`);
-    let screenshotFile = path.join(folder, 'new.png');
-    fs.writeFile(screenshotFile, data, 'base64', (err) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(screenshotFile);
-    });
-  });
+async function writeScreenshot(data) {
+  const folder = fs.mkdtempSync(`${os.tmpdir()}${path.sep}`);
+  let screenshotFile = path.join(folder, 'new.png');
+  fs.writeFileSync(screenshotFile, data, 'base64');
+  return screenshotFile;
 }
 
-// TODO: Add a tool to mask parts of the screen
+export async function addMask(el: ElementFinder, color) {  
+  let size = await el.getSize();
+  let location = await el.getLocation();
+  await browser.executeScript(mask_fn,
+    location.x, location.y,
+    size.width, size.height, color);
+}
