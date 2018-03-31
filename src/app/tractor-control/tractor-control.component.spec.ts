@@ -16,7 +16,7 @@ describe('TractorControlComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
@@ -26,14 +26,22 @@ describe('TractorControlComponent', () => {
     let frameState = fixture.debugElement.nativeElement
         .querySelector('span.frame-state');
 
-    for (let i = 1; i <= 4; i++) {
-      // Check the existing state then...
-      expect(component.frameState).toEqual(i);
+    for (let i = 1; i < 4; i++) {
+      // Check the existing state then in the view.
       expect(frameState.textContent).toContain(i);
 
-      // ...click the image and update the view.
+      // Click the image and update the view.
       leverImage.click();
+
+      // After clicking the component, the component's frameState property
+      // incremented by 1 but the view is the same.
+      expect(component.frameState).toEqual(i + 1);
+      expect(frameState.textContent).toContain(i);
+
       fixture.detectChanges();
+
+      // After detecting the change, the view has been updated.
+      expect(frameState.textContent).toContain(i + 1);
     }
     // After clicking on the element, the frame state will not increment.
     expect(component.frameState).toEqual(4);
