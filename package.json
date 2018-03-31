@@ -16,7 +16,7 @@
     "webdriver-update": "webdriver-manager update --versions.chrome=2.36 --gecko false",
     "milestone1": "export UPDATE_SCREENSHOTS=0 && npm run webdriver-update && protractor protractor.conf.js --specs='e2e/tractor.e2e-spec.ts' --directConnect",
     "milestone2": "npm run webdriver-update && node --inspect-brk ./node_modules/.bin/protractor protractor.conf.js --specs='e2e/prisoners.e2e-spec.ts' --directConnect",
-    "milestone3": "protractor protractor.conf.js --specs='e2e/firing-form.e2e-spec.ts' --highlightDelay=3000 --seleniumAddress=http://127.0.0.1:4444/wd/hub"
+    "milestone3": "protractor protractor.conf.js --specs='e2e/firing-form.e2e-spec.ts' --highlightDelay=1000"
   },
   "private": true,
   "dependencies": {
@@ -54,6 +54,6 @@
     "protractor": "~5.3.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "^2.5.3"
   }
 }

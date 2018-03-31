@@ -9,6 +9,7 @@ export class FireButtonComponent implements OnInit {
   countdown = 0;
   isReady = false;
   private startTime = 0;
+  status = '';
 
   @Input() enabled = false;
 
@@ -36,7 +37,7 @@ export class FireButtonComponent implements OnInit {
   }
 
   fire() {
-
+    this.status = "BOOM";
   }
 
 }

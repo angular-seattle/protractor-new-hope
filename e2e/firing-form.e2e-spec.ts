@@ -1,4 +1,5 @@
 import {browser, by, element, ExpectedConditions as EC} from 'protractor';
+import {type, go, see, slow, click, under, leftOf, below, rightOf} from './helpers/actions';
 
 describe('Firing form', () => {
   beforeAll(async() => {
@@ -63,6 +64,27 @@ describe('Firing form', () => {
     expect(await EC.elementToBeClickable(readyButton)()).toBeTruthy();
   });
 
+  fit('should add a name with gold using action helpers', async() => {
+    await click('Orbit:');
+    await type('3');
+
+    await below('Authorizing Officers').click('Add an officer');
+    await click('Name');
+    await type('Mr.Blondie');
+    await click('Command Code');
+    await type('Gold 1');
+
+    // check if we can fire.
+    await slow.see('Ready');
+    await click('Ready');
+
+    await browser.waitForAngularEnabled(false);
+    await browser.wait(EC.elementToBeClickable(element(by.buttonText('Fire'))));
+    await slow.click('Fire');
+    await browser.waitForAngularEnabled(true);
+    await see('BOOM');
+  });
+
   it('should click ready and fire', async() => {
     let readyButton = element(by.buttonText('Ready'));
     await readyButton.click();
@@ -73,5 +95,9 @@ describe('Firing form', () => {
     // Since Angular is not stable, we should set
     // browser.waitForAngularEnabled(false)
     await fireButton.click();
+
+    await browser.wait(EC.elementToBeClickable(see('Fire')));
+    await click('Fire');
+    await browser.sleep(6000);
   });
 });
