@@ -1,6 +1,6 @@
 # For demonstration purposes, we break the screenshots in the demo.
 # Before updating the goldens, copy the correct frame in place. 
-cp src/assets/correct-frame4.png src/assets/frame4.png
+cp src/assets/frame4-correct.png src/assets/frame4.png
 
 # Run the tests, updating the goldens.
 npm run webdriver-update
