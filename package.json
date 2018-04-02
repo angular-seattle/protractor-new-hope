@@ -8,14 +8,7 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "export UPDATE_SCREENSHOTS=0 && npm run webdriver-update && protractor protractor.conf.js",
-    "pretake_goldens": "mv src/assets/frame5.png src/assets/frame4.png",
-    "take_goldens": "export UPDATE_SCREENSHOTS=1 && npm run webdriver-update && protractor protractor.conf.js --specs='e2e/tractor.e2e-spec.ts' --directConnect",
-    "posttake_goldens": "mv src/assets/frame4.png src/assets/frame5.png && cp src/assets/frame1.png src/assets/frame4.png",
-    "webdriver-update": "webdriver-manager update --versions.chrome=2.36 --gecko false",
-    "example1": "export UPDATE_SCREENSHOTS=0 && protractor protractor-tractor.conf.js",
-    "example2": "node --inspect-brk ./node_modules/.bin/protractor protractor-prisoner.conf.js",
-    "example3": "protractor protractor.conf.js --specs='e2e/firing-form.e2e-spec.ts'"
+    "e2e": "npm run webdriver-update && protractor"
   },
   "private": true,
   "dependencies": {

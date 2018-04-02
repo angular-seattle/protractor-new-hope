@@ -15,7 +15,7 @@ exports.config = {
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval: 30000,
+    defaultTimeoutInterval: process.env['JASMINE_TIMEOUT'] || 12000,
     print: function() {}
   },
   SELENIUM_PROMISE_MANAGER: false, // Disable the Control Flow
