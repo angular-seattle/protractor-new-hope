@@ -1,5 +1,5 @@
 import {browser, by, element, ExpectedConditions as EC} from 'protractor';
-import {type, go, see, slow, click, under, leftOf, below, rightOf} from './helpers/actions';
+import {type, go, see, slow, click, under, leftOf, below, rightOf} from 'blue-harvest';
 
 describe('Firing form', () => {
   beforeAll(async() => {
