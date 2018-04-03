@@ -8,7 +8,7 @@ describe('Prisoner manifest', () => {
   describe('with login page', () => {
     it('should redirect to the login', async() => {  
       browser.waitForAngularEnabled(false);
-      await browser.get('/prisoners');
+      await browser.get('/protractor-new-hope/#/prisoners');
       expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + 'assets/login.html');
     });
   
@@ -19,7 +19,7 @@ describe('Prisoner manifest', () => {
       browser.waitForAngularEnabled(true);
       await browser.wait(() => {
         return browser.getCurrentUrl().then(url => {
-          return url !== browser.baseUrl + 'assets/login.html';
+          return url !== browser.baseUrl + '/protractor-new-hope/assets/login.html';
         });
       }, 3000);
       expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + 'prisoners');
@@ -29,10 +29,10 @@ describe('Prisoner manifest', () => {
   describe('with a cookie', () => {
     it('should automatically load prisoners', async() => {
       // TODO (milestone #2): Run through chrome://inspect and debug.
-      await browser.get('/prisoner');
+      await browser.get('/protractor-new-hope/#/prisoner');
       await (browser.manage() as any).addCookie({name: 'userflame', value: 'spock'});
-      await browser.get('/prisoner');
-      expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + 'prisoner');
+      await browser.get('/protractor-new-hope/#/prisoner');
+      expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + '/protractor-new-hope/#/prisoner');
     })
   });
   
