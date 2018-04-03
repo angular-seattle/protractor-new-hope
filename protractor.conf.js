@@ -8,7 +8,7 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome'
   },
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: (process.env.GITHUB_PAGES || 'http://localhost:4200/protractor-new-hope/'),
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

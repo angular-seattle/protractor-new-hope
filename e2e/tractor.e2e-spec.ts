@@ -10,7 +10,7 @@ const GOLDEN_IMAGES = [1,2,3,4].map((i) => {
 describe('Tractor beam control page', () => {
 
   beforeEach(async() => {
-    await browser.get('/tractor');
+    await browser.get('/#/tractor');
     let width = 1280;
     let height = 900;
     await browser.driver.manage().window().setSize(width, height);

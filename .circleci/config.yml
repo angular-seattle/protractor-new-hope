@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:8-browsers
+    steps:
+      - checkout
+      
+      - run: set -u -e -o pipefail
+      - run: export IS_CIRCLE=true
+      - run: node --version
+      - run: npm --version
+      - run: yarn --version
+      - run: google-chrome --version
+
+      - run: yarn install
+
+      - run: export UPDATE_SCREENSHOTS='0'
+      - run: export GITHUB_PAGES='https://angular-seattle.github.io/protractor-new-hope/'
+      - run: $(npm bin)/protractor --specs='e2e/tractor.e2e-spec.ts' --directConnect=true

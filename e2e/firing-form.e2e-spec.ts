@@ -3,7 +3,7 @@ import {type, go, see, slow, click, under, leftOf, below, rightOf} from 'blue-ha
 
 describe('Firing form', () => {
   beforeAll(async() => {
-    await browser.get('/firing');
+    await browser.get('/#/firing');
   });
 
   it('should fillout the required fields', async() => {

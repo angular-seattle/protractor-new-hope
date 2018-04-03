@@ -8,7 +8,7 @@ describe('Prisoner manifest', () => {
   describe('with login page', () => {
     it('should redirect to the login', async() => {  
       browser.waitForAngularEnabled(false);
-      await browser.get('/prisoners');
+      await browser.get('/#/prisoners');
       expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + 'assets/login.html');
     });
   
@@ -29,9 +29,9 @@ describe('Prisoner manifest', () => {
   describe('with a cookie', () => {
     it('should automatically load prisoners', async() => {
       // TODO (milestone #2): Run through chrome://inspect and debug.
-      await browser.get('/prisoner');
+      await browser.get('/#/prisoner');
       await (browser.manage() as any).addCookie({name: 'userflame', value: 'spock'});
-      await browser.get('/prisoner');
+      await browser.get('/#/prisoner');
       expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + 'prisoner');
     })
   });
