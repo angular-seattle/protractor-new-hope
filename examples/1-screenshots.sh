@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -u -e -o pipefail
+set +x -u -e -o pipefail
 
 # Only run the tractor beam specs
 export UPDATE_SCREENSHOTS='0'
