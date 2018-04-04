@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
 echo ""
-echo "export UPDATE_SCREENSHOTS=1"
-echo "\$(npm bin)/protractor --specs='e2e/tractor.e2e-spec.ts'"
+echo "npm run e2e -- protractor-update-goldens.conf.js"
 echo ""
 
 # Run the tests, updating the goldens.
-export UPDATE_SCREENSHOTS=1
-$(npm bin)/protractor --specs='e2e/tractor.e2e-spec.ts'
+npm run e2e -- protractor-update-goldens.conf.js

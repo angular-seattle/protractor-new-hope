@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "npm run webdriver-update && protractor",
-    "webdriver-update": "webdriver-manager update --versions.chrome=2.36 --gecko false"
+    "e2e-debug": "npm run webdriver-update && node --inspect $(npm bin)/protractor protractor-debug.conf.js",
+    "webdriver-update": "webdriver-manager update --gecko false"
   },
   "private": true,
   "dependencies": {
