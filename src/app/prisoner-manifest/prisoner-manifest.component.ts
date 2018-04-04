@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 const PRISONERS = [
-  {name: "Zarel Corrino" },
+  {name: "Zarel Corrino"},
   {name: "Drake McConnell"},
   {name: "Jar-Tan  Hamasaki" },
   {name: "Archlonus Fury"},
-  {name: "Graeme Narweld" },
+  {name: "Leia Organa" },
   {name: "Iris Aboleth"},
   {name: "Carth Burkan"},
   {name: "Ubinaarisan Helkosh"},

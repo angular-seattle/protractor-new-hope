@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>Login Page</title>
 </head>
-<body>
-<h1>Fake Login Page!</h1>
-<p><label>User:</label><input id="user" class="user" value="Bob"></p>
+<body >
+<h1>First Galactic Empire SSO Login</h1>
+<h2>Test Instance</h2>
+<p>Please use your provided test account to log in. </p>
+<p><label>User:</label><input id="user" class="user"></p>
 <p><label>Password:</label><input class="password" type="password"></p>
+<p><input type="checkbox" id="proceed"></input>Button that makes it work</p>
 <p><button id="login" type="submit" onclick="login()">Login</button></p>
 <script>
   /* In a real application, this might call to a server to generate a JWT
@@ -15,8 +18,12 @@
   function login() {
     const user = document.getElementById('user').value;
     const authToken = JSON.stringify({user, timestamp: Date.now()});
-    localStorage.setItem('auth', authToken);
-    window.location = "/prisoners";
+    if (document.getElementById('proceed').checked) {
+      localStorage.setItem('auth', authToken);
+      window.location = "/prisoners";
+    } else {
+      window.location = "/";
+    }
   }
 </script>
 </body>

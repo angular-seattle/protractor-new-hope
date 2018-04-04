@@ -1,39 +1,24 @@
 import {browser, by, element, ExpectedConditions as EC} from 'protractor';
 
 describe('Prisoner manifest', () => {
-  beforeEach(async() => {
-    await browser.manage().deleteAllCookies();
-  });
+  it('should require authentication', async() => {
+    debugger;
+    // The SSO login page isn't an Angular page, so we need to disable waitForAngular.
+    browser.waitForAngularEnabled(false);
+    await browser.get('/prisoners');
+    await element(by.css('.user')).sendKeys('TestAccount');
+    await element(by.css('.password')).sendKeys('TestPassword');
 
-  describe('with login page', () => {
-    it('should redirect to the login', async() => {  
-      browser.waitForAngularEnabled(false);
-      await browser.get('/prisoners');
-      expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + 'assets/login.html');
-    });
-  
-    it('should log in with fake credentials', async() => {
-      await element(by.css('.user')).sendKeys('foo');
-      await element(by.css('.password')).sendKeys('bar');
-      await element(by.css('button#login')).click();
-      browser.waitForAngularEnabled(true);
-      await browser.wait(() => {
-        return browser.getCurrentUrl().then(url => {
-          return url !== browser.baseUrl + '/protractor-new-hope/assets/login.html';
-        });
-      }, 3000);
-      expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + 'prisoners');
-    });
-  });
+    // Click the button to accept TOS
+    // await element(by.id('proceed')).click();
 
-  describe('with a cookie', () => {
-    it('should automatically load prisoners', async() => {
-      // TODO (milestone #2): Run through chrome://inspect and debug.
-      await browser.get('/prisoner');
-      await (browser.manage() as any).addCookie({name: 'userflame', value: 'spock'});
-      await browser.get('/prisoner');
-      expect(await browser.getCurrentUrl()).toBe(browser.baseUrl + '/prisoner');
-    })
+    await element(by.css('button#login')).click();
+
+    // Turn on waitForAngular before logging in again
+    browser.waitForAngularEnabled(true);
+    await browser.get('/prisoners');
+
+    const prisoners:string = await element(by.tagName('app-prisoner-manifest')).getText();
+    expect(prisoners).toContain('Leia Organa');
   });
-  
 });
