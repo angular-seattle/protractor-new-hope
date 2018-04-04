@@ -8,11 +8,12 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome'
   },
-  baseUrl: (process.env['GITHUB_PAGES'] || 'http://localhost:4200/'),
+  baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
+  specs: ['./e2e/*.ts'],
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval: process.env['JASMINE_TIMEOUT'] || 12000,
+    defaultTimeoutInterval: 30000,
     print: function() {}
   },
   SELENIUM_PROMISE_MANAGER: false, // Disable the Control Flow
