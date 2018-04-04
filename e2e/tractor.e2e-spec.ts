@@ -1,7 +1,7 @@
 import * as path from 'path';
 import {browser, by, element, ExpectedConditions as EC} from 'protractor';
 
-import {compareScreenshot, addMask} from 'blue-harvest';
+import * as blueharvest from 'blue-harvest';
 
 const GOLDEN_IMAGES = [1,2,3,4].map((i) => {
   return path.join(__dirname, `goldens/tractor_control${i}.png`);
@@ -18,14 +18,15 @@ describe('Tractor beam control page', () => {
 
   it('display the right images', async() => {
     let timeEl = element(by.css('.time'));
-    await addMask(timeEl, 'black');
+    await blueharvest.addMask(timeEl, 'black');
+
     console.log(GOLDEN_IMAGES)
     for(let golden of GOLDEN_IMAGES) {
       console.log('Checking golden ', golden);
 
       // Get the screenshot and compare it to the golden.
       let data = await browser.takeScreenshot();
-      let result = await compareScreenshot(data, golden);
+      let result = await blueharvest.compareScreenshot(data, golden);
       expect(result).toBeTruthy();
 
       // Increment the image.
