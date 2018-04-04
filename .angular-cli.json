@@ -6,9 +6,8 @@
   "apps": [
     {
       "root": "src",
-      "baseHref": "/protractor-new-hope/",
       "outDir": "dist",
-      "deployUrl": "/protractor-new-hope/",
+      "deployUrl": "/",
       "assets": [
         "assets",
         "favicon.ico"
