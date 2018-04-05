@@ -25,12 +25,13 @@ export class FiringFormComponent implements OnInit {
   private startTime = 0;
   orderForm: FormGroup;
   order: FiringOrder;
+  planetStatus = 'Ok';
 
   constructor(private fb: FormBuilder) { }
 
   createForm() {
     this.orderForm = this.fb.group({
-      system: ['Alderaan', Validators.required],
+      system: ['', Validators.required],
       orbit: ['', Validators.required],
       authorizingOfficers: this.fb.array([])
     }, {
@@ -73,9 +74,10 @@ export class FiringFormComponent implements OnInit {
     this.officers.removeAt(index);
   }
 
-  onSubmit() {
+  onFire() {
     // Show video of death star firing
     console.log('Submitting!');
+    this.planetStatus = 'Destroyed';
   }
 }
 

@@ -36,5 +36,6 @@
 </div>
 </div>
 
-<app-fire-button [enabled]="orderForm.valid"></app-fire-button>
+<app-fire-button [enabled]="orderForm.valid" (fire)="onFire()"></app-fire-button>
 </form>
+<div>Status: <span>{{planetStatus}}</span></div>

@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "protractor",
-    "e2e-debug": "node --inspect $(npm bin)/protractor protractor-debug.conf.js",
+    "e2e-debug": "node --inspect-brk $(npm bin)/protractor protractor-debug.conf.js",
     "webdriver-update": "webdriver-manager update --gecko false"
   },
   "private": true,

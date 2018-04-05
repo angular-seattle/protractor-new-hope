@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fire-button',
@@ -12,6 +12,7 @@ export class FireButtonComponent implements OnInit {
   status = '';
 
   @Input() enabled = false;
+  @Output() fire = new EventEmitter();
 
   constructor() { }
 
@@ -36,8 +37,8 @@ export class FireButtonComponent implements OnInit {
     requestAnimationFrame(updateTimer);
   }
 
-  fire() {
-    this.status = "BOOM";
+  fireHandler() {
+    this.fire.emit();
   }
 
 }
