@@ -10,7 +10,7 @@
 <p>Please use your provided test account to log in. </p>
 <p><label>User:</label><input id="user" class="user"></p>
 <p><label>Password:</label><input class="password" type="password"></p>
-<p><input type="checkbox" id="proceed"></input>Button that makes it work</p>
+<p><input type="checkbox" id="proceed"></input>I am not a droid</p>
 <p><button id="login" type="submit" onclick="login()">Login</button></p>
 <script>
   /* In a real application, this might call to a server to generate a JWT
@@ -22,7 +22,7 @@
       localStorage.setItem('auth', authToken);
       window.location = "/prisoners";
     } else {
-      window.location = "/";
+      alert('Please prove you\'re not a droid!');
     }
   }
 </script>
