@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
 
 @Component({
-  template: `
-  Welcome to the Death Star!
-  `
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
 
