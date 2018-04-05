@@ -1,0 +1,19 @@
+{
+  "asset": "/assets/frame4.png",
+  "status": [{
+    "name": "Main reactor level",
+    "value": 0
+  }, {
+    "name": "Max size ship",
+    "value": 1
+  }, {
+    "name": "Tractor beam output",
+    "value": 0
+  }, {
+    "name": "Range attraction",
+    "value": 1
+  }, {
+    "name": "Radial projection",
+    "value": 0
+  }]
+}

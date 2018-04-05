@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -61,6 +62,7 @@ export class MaterialImportModule{ }
     BrowserModule,
     BrowserAnimationsModule,
     FiringFormModule,
+    HttpClientModule,
     MaterialImportModule,
     ReactiveFormsModule,
   ],

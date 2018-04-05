@@ -1,0 +1,18 @@
+.tractor-state {
+  width: 600px;
+  padding-left: 50px;
+}
+
+table {
+  text-align: left;
+  font-family: 'Arial'
+}
+
+th {
+  font-size: 1.5em;
+}
+td {
+  font-family: 'Comic Sans MS';
+  width: 300px;
+  font-size: 1.1em;
+}

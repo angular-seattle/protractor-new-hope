@@ -1,12 +1,15 @@
-<div style="text-align:center">
-  <p class="time">{{today | date: 'full'}}</p>
+<div *ngIf="tractorState" class="tractor-state">
   <p>
+    <button mat-button color="primary" (click)="incrementFrameState()">next frame</button>
     <button mat-button color="primary" (click)="resetFrameState()">reset frames</button>
+    
   </p>
   <p>
-    <img class="lever" [src]="getFrame()" (click)="incrementFrameState()" width=500/>
+    <img class="lever"  [src]="asset" height=250 width=500/>
   </p>
-  <p>
-    <span class="frame-state">frame: {{frameState}}</span>
-  </p>
+  <table>
+    <tr *ngFor="let row of dataSource">
+      <td>{{row.name}}</td><td>{{row.value}}</td>
+    </tr>
+  </table>
 </div>
