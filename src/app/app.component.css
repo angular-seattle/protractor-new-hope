@@ -15,3 +15,12 @@
 .logo {
   height: 42px;
 }
+
+.app-background {
+  background: url(/assets/deathstar.webp), #202020;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 950px;
+  background-blend-mode: darken;
+}
