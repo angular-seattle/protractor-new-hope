@@ -17,8 +17,7 @@ describe('Tractor beam control page', () => {
   });
 
   it('display the right images', async() => {
-    let timeEl = element(by.css('.time'));
-    await blueharvest.addMask(timeEl, 'black');
+    await blueharvest.addMask(element(by.css('img.lever')), 'white');
 
     console.log(GOLDEN_IMAGES)
     for(let golden of GOLDEN_IMAGES) {
@@ -30,7 +29,7 @@ describe('Tractor beam control page', () => {
       expect(result).toBeTruthy();
 
       // Increment the image.
-      await element(by.css('img.lever')).click();
+      await element(by.buttonText('next frame')).click();
     }
   });
 });

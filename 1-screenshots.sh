@@ -2,7 +2,7 @@
 echo ""
 echo "npm run e2e -- --specs='e2e/tractor.e2e-spec.ts'"
 echo ""
-read -t 10
+read
 
 # Only run the tractor beam specs
 npm run e2e -- --specs='e2e/tractor.e2e-spec.ts'

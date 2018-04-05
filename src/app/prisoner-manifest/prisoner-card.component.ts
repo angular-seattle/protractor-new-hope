@@ -13,5 +13,5 @@ import { Component, Input, ChangeDetectionStrategy} from '@angular/core';
   ]
 })
 export class PrisonerCardComponent {
-  @Input() prisoner: {};
+  @Input() prisoner: { name?: string };
 }
