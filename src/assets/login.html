@@ -10,15 +10,50 @@
 <p>Please use your provided test account to log in. </p>
 <p><label>User:</label><input id="user" class="user"></p>
 <p><label>Password:</label><input class="password" type="password"></p>
-<p><input type="checkbox" id="proceed"></input>I am not a droid</p>
+
+<!-- Shamelessly stolen from the reCAPTCHA API, for parody purposes. -->
+<div class = "cap-anchor-content">
+  <div class="cap-inline-block">
+    <div class="cap-anchor-center-container">
+    <div class="cap-anchor-center">
+      <span class="cap-checkbox" type="checkbox" id="proceed" onclick="captcha()">
+        <div class="cap-checkbox-border"></div>
+        <div class="cap-checkbox-checkmark"></div>
+      </span>
+    </div>
+    </div>
+  </div>
+  <div class="cap-inline-block">
+    <div class="cap-anchor-center-container">
+      <div class="cap-anchor-center cap-checkbox-label">
+        I'm not a droid
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cap-footer">
+  <div class="cap-logo-portrait">
+    <div class="cap-logo-img"></div>
+    <div class="cap-logo-text">notCAPTCHA</div>
+  </div>
+</div>
+
 <p><button id="login" type="submit" onclick="login()">Login</button></p>
 <script>
+  function captcha() {
+    window.notDroid = true;
+    const checkbox = document.getElementById('proceed');
+    /* TODO: Animate the checkbox */
+    checkbox.querySelector('.cap-checkbox-border').style["display"] = "none";
+    checkbox.querySelector('.cap-checkbox-checkmark').style["display"] = "block";
+  }
+
   /* In a real application, this might call to a server to generate a JWT
      auth token for testing purposes. */
   function login() {
     const user = document.getElementById('user').value;
     const authToken = JSON.stringify({user, timestamp: Date.now()});
-    if (document.getElementById('proceed').checked) {
+    if (window.notDroid) {
       localStorage.setItem('auth', authToken);
       window.location = "/prisoners";
     } else {
@@ -26,5 +61,105 @@
     }
   }
 </script>
+<style>
+body { 
+  background-color: #222;
+  color: #fff;
+}
+
+.cap-anchor-center-container {
+  display: table;
+  height: 100%;
+}
+
+.cap-anchor-center {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.cap-anchor-content {
+  height: 74px;
+  width: 206px;
+  display: inline-block;
+}
+
+.cap-inline-block {
+  display: inline-block;
+  height: 100%;
+}
+
+.cap-checkbox {
+  margin: 0 12px 2px 12px;
+  border: none;
+  height: 28px;
+  width: 28px;
+  overflow: visible;
+  vertical-align: text-bottom;
+  position: relative;
+  display: inline-block;
+}
+
+.cap-checkbox-border {
+  border-radius: 2px;
+  background-color: #fff;
+  border: 2px solid #c1c1c1;
+  font-size: 1px;
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+
+.cap-checkbox-label {
+  font-family: Roboto,helvetica,arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.cap-checkbox-checkmark {
+  background-repeat: no-repeat;
+  background: url("checkmark.png");
+  background-position: 0px 870px;
+  display: none;
+  position: absolute;
+  height: 30px;
+  left: -5px;
+  outline: 0;
+  width:38px;
+}
+
+.cap-footer {
+  display: inline-block;
+  height: 74px;
+  vertical-align: top;
+  width: 70px;
+}
+
+.cap-logo-portrait {
+  margin: 10px 0 0 26px;
+  width: 58px;
+  overflow: visible;
+}
+
+.cap-logo-img {
+  background: url("recaptcha_logo.png");
+  background-size: 32px;
+  background-repeat: no-repeat;
+  height: 32px;
+  margin: 0 13px 0 13px;
+  width: 32px;
+}
+
+.cap-logo-text {
+  color: #9b9b9b;
+  cursor: default;
+  font-family: Roboto, helvetica, arial, sans-serif;
+  font-size: 10px;
+  font-weight:400;
+  line-height: 10px;
+  margin-top: 5px;
+  text-align: center;
+}
+</style>
 </body>
 </html>
