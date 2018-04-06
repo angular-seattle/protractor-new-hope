@@ -7,20 +7,7 @@ describe('Firing form', () => {
   });
 
   fit('should add a name with gold using action helpers', async() => {
-    await click('System:');
-    await type('Alderaan');
-    await click('Orbit:');
-    await type('3');
-
-    await below('Authorizing Officers').click('Add an officer');
-    await click('Name');
-    await type('Tarkin');
-    await click('Command Code');
-    await type('Gold 1');
-
-    // check if we can fire.
-    await slow.see('Ready');
-    await click('Ready');
+    // Test goes here...
 
     // You can mix traditional WebDriver with action helpers
     await browser.waitForAngularEnabled(false);
