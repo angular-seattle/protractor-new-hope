@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 export interface TractorState {
@@ -16,12 +17,18 @@ export class TractorControlComponent implements OnInit {
   tractorState: TractorState;
   displayedColumns = ['name', 'value'];
   asset = '';
+  useAnimated: boolean;
   dataSource = [{name: '', value: ''}];
   tractorUrl = `/assets/tractor-status-${this.frameState}.json`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    if (this.route.snapshot.queryParamMap.get('use_animated') === "1" ||
+        this.route.snapshot.queryParamMap.get('use_animated') === "true") {
+      this.useAnimated = true;
+    }
     this.getFrameState();
   }
 
@@ -33,10 +40,15 @@ export class TractorControlComponent implements OnInit {
   }
 
   getFrameState() {
-    this.tractorUrl = `/assets/tractor-status-${this.frameState}.json`;
+    this.tractorUrl = `/assets/tractor_status_${this.frameState}.json`;
+
     this.http.get(this.tractorUrl).subscribe(data => {
       this.tractorState = data as TractorState;
-      this.asset = this.tractorState.asset;
+      if (this.useAnimated) {
+        this.asset = '/assets/animated_obiwan.gif';
+      } else {
+        this.asset = this.tractorState.asset;
+      }
       this.dataSource = this.tractorState.status;
     });
   }
