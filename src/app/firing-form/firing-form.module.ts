@@ -10,6 +10,8 @@ import {
   MatButtonModule,
   MatDividerModule,
   MatInputModule,
+  MatListModule,
+  MatIconModule
 } from '@angular/material';
 
 @NgModule({
@@ -23,6 +25,8 @@ import {
     MatButtonModule,
     MatDividerModule,
     MatInputModule,
+    MatListModule,
+    MatIconModule,
     ReactiveFormsModule,
   ]
 })

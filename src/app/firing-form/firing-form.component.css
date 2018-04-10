@@ -1,9 +1,13 @@
 .officers {
     border: solid gray 1px;
-    width: 400px;
+    width: 550px;
     padding: 1em;
 }
 
-.officers h4{
-    margin: 0;
+mat-form-field {
+    margin: 10px;
+}
+
+.order-form {
+    margin: 2em;
 }

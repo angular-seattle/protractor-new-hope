@@ -1,3 +1,4 @@
+<div class="order-form">
 <h2>Firing Authorization Form</h2>
 <div>Failure to properly fill out the Death Star Firing Authorization Form will be punished under
   Article 22-C of the Imperial Code of Military Conduct</div>
@@ -15,27 +16,27 @@
 </mat-form-field>
 
 <div class="officers">
-<h4>Authorizing Officers</h4>
+<p><h4>Authorizing Officers</h4>
 <mat-divider></mat-divider>
-<div formArrayName="authorizingOfficers">
-  <div *ngFor="let officer of officers.controls; let i=index" [formGroupName]="i" >
-    <!-- The repeated address template -->
-    <div style="margin-left: 1em;">
-      <mat-form-field floatLabel=true>
-        <mat-label class="center-block">Name</mat-label>
-        <input matInput class="form-control" formControlName="name">
-      </mat-form-field>
-      <mat-form-field floatLabel=true>
-        <mat-label class="center-block">Command Code</mat-label>
-        <input matInput class="form-control" formControlName="commandCode">
-      </mat-form-field>
-      <button (click)="removeOfficer(i)" type="button">Delete</button>
-    </div>
-  </div>
+<mat-list formArrayName="authorizingOfficers">
+  <mat-list-item *ngFor="let officer of officers.controls; let i=index" [formGroupName]="i" >
+    <mat-form-field floatLabel=true>
+      <mat-label class="center-block">Name</mat-label>
+      <input matInput class="form-control" formControlName="name">
+    </mat-form-field>
+    <mat-form-field floatLabel=true>
+      <mat-label class="center-block">Command Code</mat-label>
+      <input matInput class="form-control" formControlName="commandCode">
+    </mat-form-field>
+    <span *ngIf="officer.valid"><mat-icon>check circle</mat-icon></span>
+    <span *ngIf="!officer.valid"><mat-icon>error</mat-icon></span>
+    <button (click)="removeOfficer(i)" type="button">Delete</button>
+  </mat-list-item>
   <button mat-button (click)="addOfficer()" type="button">Add an officer</button>
-</div>
+</mat-list>
 </div>
 
 <app-fire-button [enabled]="orderForm.valid" (fire)="onFire()"></app-fire-button>
 </form>
 <div>Status: <span>{{planetStatus}}</span></div>
+</div>

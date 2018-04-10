@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class Officer {
   name: string = '';
@@ -34,8 +34,6 @@ export class FiringFormComponent implements OnInit {
       system: ['', Validators.required],
       orbit: ['', Validators.required],
       authorizingOfficers: this.fb.array([])
-    }, {
-      validator: officerValidator
     });
   }
 
@@ -66,7 +64,9 @@ export class FiringFormComponent implements OnInit {
   }
 
   addOfficer() {
-    this.officers.push(this.fb.group(new Officer()));
+    this.officers.push(this.fb.group({
+      name: ['', Validators.required],
+      commandCode: ['', commandCodeValidator]}));
     console.log(this.officers)
   }
 
@@ -81,15 +81,12 @@ export class FiringFormComponent implements OnInit {
   }
 }
 
-
-function officerValidator(group: FormGroup) {
-  const value = group.value as FiringOrder;
-  const valid = value.authorizingOfficers.some((officer) => {
-    return officer.commandCode.includes('Gold');
-  })
-  if (!valid) {
-    return {'MissingAuth': true}
+function commandCodeValidator(control: FormControl) {
+  console.log('Validator!', control);
+  if (control.value.toLowerCase().includes('gold')) {
+    return null;
   }
+  return {'BadCode': true};
 }
 
 
