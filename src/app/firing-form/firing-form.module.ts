@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { FiringFormComponent } from './firing-form.component';
-import { FireButtonComponent} from './fire-button.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import {
@@ -16,7 +15,6 @@ import {
 
 @NgModule({
   declarations: [
-    FireButtonComponent,
     FiringFormComponent,
   ],
   imports: [

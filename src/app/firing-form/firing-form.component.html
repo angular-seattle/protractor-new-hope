@@ -32,11 +32,10 @@
     <span *ngIf="!officer.valid"><mat-icon>error</mat-icon></span>
     <button (click)="removeOfficer(i)" type="button">Delete</button>
   </mat-list-item>
-  <button mat-button (click)="addOfficer()" type="button">Add an officer</button>
+  <button mat-button color="secondary" (click)="addOfficer()" type="button">Add an officer</button>
 </mat-list>
 </div>
 
-<app-fire-button [enabled]="orderForm.valid" (fire)="onFire()"></app-fire-button>
+<button class="fire-button" color="primary" mat-raised-button [disabled]="!orderForm.valid" (click)="onFire()">Fire</button>
 </form>
-<div>Status: <span>{{planetStatus}}</span></div>
-</div>
+<div class="status">Planet Status: <span>{{planetStatus}}</span></div> </div>

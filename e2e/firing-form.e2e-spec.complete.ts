@@ -23,11 +23,7 @@ describe('Firing form', () => {
     await type('Gold 1');
     await rightOf('Gold 1').see('check circle');
 
-    browser.waitForAngularEnabled(false);
-    await click('Ready');
-    await waitForEnabled('Fire');
     await click('Fire');
-    browser.waitForAngularEnabled(true);
     await slow.see('Destroyed');
   });
 
