@@ -38,4 +38,5 @@
 
 <button class="fire-button" color="primary" mat-raised-button [disabled]="!orderForm.valid" (click)="onFire()">Fire</button>
 </form>
-<div class="status">Planet Status: <span>{{planetStatus}}</span></div> </div>
+<div class="planet-status">Planet Status: 
+  <span class="status-{{planetStatus.toLowerCase()}}">{{planetStatus}}</span></div> </div>

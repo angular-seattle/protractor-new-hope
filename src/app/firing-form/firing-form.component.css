@@ -15,3 +15,18 @@ mat-form-field {
 .fire-button {
     margin: 1em;
 }
+
+.planet-status {
+    width: 320px;
+    font-size: 2em;
+    padding: 8px;
+    border: 2px solid white;
+}
+
+.status-ok {
+    color: lightgreen;
+}
+
+.status-destroyed {
+    color: red;
+}
