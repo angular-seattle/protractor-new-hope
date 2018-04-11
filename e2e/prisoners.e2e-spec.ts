@@ -9,12 +9,12 @@ describe('Prisoner manifest', () => {
     await go('/prisoners');
     await rightOf('User:').click(by.css('input'));
     await type('Test User');
-    await element(by.css('.password')).sendKeys('TestPassword');
-    await element(by.css('button#login')).click();
+    await rightOf('User:').click(by.css('input'));
+    await type('TestPassword');
+    await click(by.id('proceed'))
 
-    // Turn on waitForAngular before logging in again
     browser.waitForAngularEnabled(true);
-    await browser.get('/prisoners');
+    await click('Login');
 
     const prisoners:string = await element(by.tagName('app-prisoner-manifest')).getText();
     expect(prisoners).toContain('Leia Organa');
