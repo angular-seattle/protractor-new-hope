@@ -9,7 +9,7 @@ describe('Prisoner manifest', () => {
     await go('/prisoners');
     await rightOf('User:').click(by.css('input'));
     await type('Test User');
-    await rightOf('User:').click(by.css('input'));
+    await rightOf('Password:').click(by.css('input'));
     await type('TestPassword');
     await click(by.id('proceed'))
 

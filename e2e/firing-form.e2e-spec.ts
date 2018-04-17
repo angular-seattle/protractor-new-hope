@@ -1,9 +1,7 @@
-import {browser, by, element, ExpectedConditions as EC} from 'protractor';
-import {type, go, see, slow, click, under, leftOf, below, rightOf} from 'blue-harvest';
-
-async function waitForEnabled(label) {
-  await browser.wait(EC.elementToBeClickable(element(by.buttonText(label))));
-}
+import {browser, by} from 'protractor';
+import {type, go, see, slow,
+    click, under, leftOf,
+    below, rightOf} from 'blue-harvest';
 
 describe('Firing form', () => {
   beforeEach(async() => {
