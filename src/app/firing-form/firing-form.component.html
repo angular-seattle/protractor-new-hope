@@ -39,4 +39,12 @@
 <button class="fire-button" color="primary" mat-raised-button [disabled]="!orderForm.valid" (click)="onFire()">Fire</button>
 </form>
 <div class="planet-status">Planet Status: 
-  <span class="status-{{planetStatus.toLowerCase()}}">{{planetStatus}}</span></div> </div>
+  <span *ngIf="planetStatus; else updating">
+    <span class="status-{{planetStatus.toLowerCase()}}">{{planetStatus}}</span>
+  </span>
+  <ng-template #updating>
+    <span>
+    <mat-progress-bar color="warn" mode="query"></mat-progress-bar>
+</span>
+  </ng-template>
+</div>

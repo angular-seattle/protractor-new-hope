@@ -77,7 +77,8 @@ export class FiringFormComponent implements OnInit {
   onFire() {
     // Show video of death star firing
     console.log('Submitting!');
-    this.planetStatus = 'Destroyed';
+    this.planetStatus = "";
+    setTimeout(() => this.planetStatus = "Destroyed", 3000);
   }
 }
 

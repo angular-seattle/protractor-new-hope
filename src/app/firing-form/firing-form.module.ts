@@ -10,7 +10,8 @@ import {
   MatDividerModule,
   MatInputModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatProgressBarModule,
 } from '@angular/material';
 
 @NgModule({
@@ -23,6 +24,7 @@ import {
     MatButtonModule,
     MatDividerModule,
     MatInputModule,
+    MatProgressBarModule,
     MatListModule,
     MatIconModule,
     ReactiveFormsModule,
