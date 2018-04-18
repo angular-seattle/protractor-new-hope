@@ -2,3 +2,13 @@
     Welcome to the Death Star control interface. Unauthorized access will be punished
     subject to The Emperor's discretion.
 </h2>
+
+<img (click)="toggleSoundboard()" class="rebel" src="assets/rebel_logo.png">
+
+<div *ngIf="showSoundboard">
+    <mat-grid-list cols="5" rowHeight="50px" class="commands">
+        <mat-grid-tile *ngFor="let command of commands">
+            <button mat-button (click)="droid.sendCommand(command)">{{command}}</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -2,3 +2,15 @@
     text-align: center;
     margin: 20px;
 }
+
+.commands {
+    width: 500px;
+}
+
+.rebel {
+    width: 50px;
+    background-image: url(/assets/rebel_logo.png);
+    background-color: transparent;
+    margin:20px;
+    cursor: pointer;
+}

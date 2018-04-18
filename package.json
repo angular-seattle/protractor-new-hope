@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^5.2.7",
     "@angular/platform-browser-dynamic": "^5.2.7",
     "@angular/router": "^5.2.7",
+    "@types/web-bluetooth": "0.0.4",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
