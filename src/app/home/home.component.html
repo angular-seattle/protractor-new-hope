@@ -6,9 +6,11 @@
 <img (click)="toggleSoundboard()" class="rebel" src="assets/rebel_logo.png">
 
 <div *ngIf="showSoundboard">
-    <mat-grid-list cols="5" rowHeight="50px" class="commands">
+    <mat-grid-list cols="4" rowHeight="50px" class="commands">
         <mat-grid-tile *ngFor="let command of commands">
             <button mat-button (click)="droid.sendCommand(command)">{{command}}</button>
         </mat-grid-tile>
     </mat-grid-list>
+
+    <button mat-button (click)="droid.disconnect()">Disconnect</button>
 </div>
