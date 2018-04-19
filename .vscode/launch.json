@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "stopOnEntry": true,
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/node_modules/.bin/protractor",
+      "args": [
+        "protractor-debug.conf.js",
+        //"--specs='${workspaceFolder}/e2e/prisoners.e2e-spec.ts'"
+      ]
+    }
+  ],
+  "compounds": []
+}
