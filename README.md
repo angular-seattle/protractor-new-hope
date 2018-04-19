@@ -1,6 +1,9 @@
 # Protractor: A New Hope
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+This is the demo app for our ng-conf 2018 talk - Protractor: A New Hope.
+
+It's the admin interface for the Death Star. You can run the different milestones from our 
+talk with the following scripts:
 
 ## Development server
 
@@ -8,7 +11,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 # Milestones
 
-## The Tractor Beam Lever
+Easter Egg: If you click the Rebel icon in the home page, you'll get a control panel for a Sphero R2D2. 
+The code for this is in `src/app/home/droid.ts` - you'll need to edit that and put the name of your
+droid there in order to control it.
+
+## The Tractor Beam Lever (Screenshot Testing)
+Run `1-screenshots.sh`
 
 Compares images at `/tractor` using blue-harvest node module.
 
@@ -16,14 +24,15 @@ Compares images at `/tractor` using blue-harvest node module.
 - Prior to running the test, generate golden images with `./update-goldens.sh`. The shell command runs protractor spec file `e2e/tractor.e2e-spec.ts` with environment variable `UPDATE_GOLDENS` set to `true`.
 - Compare screenshots with `./1-screenshots.sh`. The shell command compares the golden screenshot against the actual screenshot. If there are diffs, the file we be written to `diff.png` and the test will fail.
 
-## Prisoner Manifest
+## Firing Form (Action Helpers)
+Run `2-action-helpers.sh`
 
-- RouteGuard authentication
-- OnPush component?
-- Debug this test using Chrome devtools?
+The finished example test is `e2e/firing-form.e2e-spec.complete.ts`. It uses Action Helpers to test
+the firing form.
 
-## Planet destruction order form
+## Prisoner Manifest (Debugging)
+Run `3-debugging.sh` to debug the test with Chrome Devtools. You'll need to open chrome to `chrome://inspect`
 
-- Reactive form
-- weird timing requirements
-- Highlight delay for debugging
+You can also debug with VSCode, as we did in the demo. The launch configuration is in `./vscode/launch.json`
+
+The Prisoner manifest is behind an auth guard which requires a "I'm not a droid" captcha. 
